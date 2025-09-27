@@ -128,10 +128,11 @@ const App = () => {
             image={currentUserRank.userId.profilePicture}
             maths={currentUserRank.subjects[0].totalMarkScored}
             maxScore={300}
-            name={currentUserRank.userId.name}
+            name={currentUserRank.userId.name+" (You)"}
             overall={currentUserRank.totalMarkScored}
             physics={currentUserRank.subjects[1].totalMarkScored}
             rank={currentUserRank.rank}
+            
             />
         </div>
       )}

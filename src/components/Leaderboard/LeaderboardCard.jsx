@@ -97,7 +97,7 @@ export function LeaderboardCard({
         </div>
 
         
-        <h2 className="mt-7 text-lg font-bold text-center text-[var(--q3-neutral-default)]">{name}</h2>
+        <h2 className="mt-7 text-sm font-bold text-center text-[var(--q3-neutral-default)]">{name}</h2>
 
         
         <span

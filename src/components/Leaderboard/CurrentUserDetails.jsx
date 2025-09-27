@@ -30,7 +30,7 @@ const CurrentUserDetails = ({ currentUser,scrollRef }) => {
                     className="w-8 h-8 rounded-full object-cover border border-[var(--q3-stroke-light)]"
                   />
                   <span className="truncate text-sm font-bold text-[var(--q3-neutral-default)]">
-                    {currentUser.userId.name}
+                    {currentUser.userId.name+" (You)"}
                   </span>
                 </div>
               </td>
