@@ -25,7 +25,7 @@ const Table = ({ page = 1, totalPages = 1, setPage, PaginationData, limit, setLi
   
 
   return (
-    <div className="w-full h-[calc(100vh - 72px)] flex flex-col mb-20">
+    <div className="w-full h-[100vh] flex flex-col mb-20">
       <div className="rounded-xl border border-[var(--q3-stroke-light)] shadow-sm flex-1 flex flex-col overflow-hidden">
         {/* Table header */}
         <div className="overflow-x-auto flex-1 scrollbar-hide "  ref={scrollRef}>
@@ -52,7 +52,7 @@ const Table = ({ page = 1, totalPages = 1, setPage, PaginationData, limit, setLi
                   Overall Score
                 </th>
 
-                {/* Dynamic subject headers */}
+                
                 {subjects.map((sub) => (
                   <th
                     key={sub}
@@ -112,7 +112,7 @@ const Table = ({ page = 1, totalPages = 1, setPage, PaginationData, limit, setLi
                     </p>
                   </td>
 
-                  {/* Dynamic subject marks */}
+                  
                   {subjects.map((sub) => {
                     const subject = student.subjects.find((s) => s.subjectId.title === sub);
                     return (

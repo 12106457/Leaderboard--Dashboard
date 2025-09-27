@@ -1,4 +1,4 @@
-import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import { Avatar } from "../ui/avatar";
 import { Trophy, Target, Checks, Flask, MathOperations, Atom } from "phosphor-react";
 
 export function LeaderboardCard({
@@ -12,7 +12,7 @@ export function LeaderboardCard({
   maths,
   accuracy,
 }) {
-  // Select CSS variables based on rank
+  
   const bg =
     rank === 1
       ? "var(--rank1-bg)"
@@ -55,19 +55,19 @@ export function LeaderboardCard({
 
   return (
     <div
-      className="w-64 rounded-3xl p-[1.5px]" // border thickness
+      className="w-64 rounded-3xl p-[1.5px]" 
       style={{
         background: border,
       }}
     >
-      {/* Inner card */}
+      
       <div
         className="rounded-3xl p-4 flex flex-col items-center"
         style={{
           background: bg,
         }}
       >
-        {/* Avatar */}
+        
         <div className="relative">
           <Avatar className="w-20 h-20 border-2 border-[var(--q3-stroke-light)] shadow">
             {image ? (
@@ -77,7 +77,7 @@ export function LeaderboardCard({
             )}
           </Avatar>
 
-          {/* Rank Badge */}
+          
           <div
             className="absolute -bottom-7 left-1/2 -translate-x-1/2 flex items-center justify-center"
             style={{
@@ -96,10 +96,10 @@ export function LeaderboardCard({
           </div>
         </div>
 
-        {/* Name */}
+        
         <h2 className="mt-7 text-lg font-bold text-center text-[var(--q3-neutral-default)]">{name}</h2>
 
-        {/* Rank Label */}
+        
         <span
           className="mt-2 text-sm font-medium"
           style={{
@@ -115,7 +115,7 @@ export function LeaderboardCard({
           <sup>{rankLabel}</sup> Rank
         </span>
 
-        {/* Scores */}
+        
         <div className="mt-4 text-sm w-full space-y-2 font-medium text-[var(--q3-neutral-light)]">
           <div className="flex justify-between ">
             <span className="flex items-center gap-1 text-[var(--q3-neutral-light)]">

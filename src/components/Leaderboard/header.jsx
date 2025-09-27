@@ -23,11 +23,11 @@ const Header = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-[var(--background)] px-4 py-3 shadow transition-all duration-1000">
-      {/* Conditionally render header layout */}
+      
       {isScrolled ? (
-        // Compact Header (on scroll)
+        
         <div className="flex items-center justify-between w-full">
-          {/* Back + Title */}
+         
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center bg-[var(--q3-surface-dimmer)] rounded-full w-[36px] h-[36px]">
               <ArrowLeft size={20} weight="bold" />
@@ -40,7 +40,7 @@ const Header = () => {
             </h1>
           </div>
 
-          {/* Dark/Light toggle */}
+         
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="flex items-center gap-2 px-3 py-1.5 rounded-lg shadow-md transition-all duration-300"
@@ -61,9 +61,9 @@ const Header = () => {
           </button>
         </div>
       ) : (
-        // Full Header (top of page)
+        
         <div className="flex flex-col gap-4">
-          {/* Top bar */}
+         
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center justify-center bg-[var(--q3-surface-dimmer)] rounded-full w-[40px] h-[40px]">
               <ArrowLeft size={22} weight="bold" />
@@ -89,7 +89,7 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Title + Subheading */}
+         
           <div className="flex flex-col gap-2">
             <h1
               className="text-3xl font-bold"

@@ -5,11 +5,12 @@ import Header from "./components/Leaderboard/header";
 import { LeaderboardCard } from "./components/Leaderboard/LeaderboardCard";
 import Table from "./components/Leaderboard/Table";
 import CurrentUserDetails from "./components/Leaderboard/CurrentUserDetails";
+import Spinner from "./utils/spinner";
 
 const App = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [limit, setLimit] = useState(50);
+  const [limit, setLimit] = useState(20);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -35,8 +36,8 @@ const App = () => {
 
   fetchLeaderboard(page,limit)
     .then((res) => {
-      // normalize possible shapes to an array called `items`
-      const payload = res?.data ?? res; // prefer res.data, fall back to res itself
+      
+      const payload = res?.data ?? res;
       let items = [];
 
       if (Array.isArray(payload)) {
@@ -48,19 +49,19 @@ const App = () => {
       } else if (Array.isArray(payload.results)) {
         items = payload.results;
       } else if (typeof payload === "object") {
-        // if payload is an object with numeric keys: {0: {...}, 1: {...}}
+        
         const numericKeys = Object.keys(payload).filter((k) => /^\d+$/.test(k));
         if (numericKeys.length) {
           items = numericKeys.map((k) => payload[k]);
         } else {
-          // fallback: try values (may not be what you want)
+          
           items = Object.values(payload).filter((v) => v && typeof v === "object");
         }
       } else {
         items = [];
       }
 
-      // now items is guaranteed to be an array
+     
       if (isDesktop) {
         if (page === 1) {
           setTop3Ranks(items.slice(0, 3));
@@ -70,11 +71,11 @@ const App = () => {
         }
       } else {
         setOtherUserRanks(items);
-        setTop3Ranks([]); // clear top 3 on mobile
+        setTop3Ranks([]);
       }
 
       // setData(items);
-      // handle totalPages/userRank from different shapes too
+      
       setTotalPages(res?.totalPages ?? res?.meta?.totalPages ?? 1);
       setCurrentUserRank(res?.userRank ?? res?.user_rank ?? res?.user ?? {});
     })
@@ -93,7 +94,7 @@ const App = () => {
       <Header />
       <div className="pt-32 md:pt-24"/>
 
-      {loading && <p className="mt-10">Loading leaderboard...</p>}
+      {/* {loading && <p className="mt-10">Loading leaderboard...</p>} */}
       {error && <p className="mt-10 text-red-500">{error}</p>}
 
       {!loading && !error && otherUserRanks.length === 0 && (
@@ -104,7 +105,7 @@ const App = () => {
         <div
           className="hidden md:flex flex-wrap gap-6 justify-center mt-10 rounded-3xl p-6 "
           style={{
-            background: "var(--q3-surface-glass-normal)",
+            // background: "var(--q3-surface-glass-normal)",
             backdropFilter: "blur(16px)",
           }}
         >
@@ -143,6 +144,11 @@ const App = () => {
         <CurrentUserDetails currentUser={currentUserRank}  scrollRef={currentUserRef}/>
       </div>
       }
+      {loading && (
+        <div className="fixed inset-0 bg-gray-500/30 bg-opacity-50 flex justify-center items-center z-50">
+          <Spinner loading={loading} />
+        </div>
+      )}
 
     </div>
   );
