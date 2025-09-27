@@ -55,7 +55,7 @@ export function LeaderboardCard({
 
   return (
     <div
-      className="w-64 rounded-3xl p-[1.5px]" 
+      className="w-[264px] rounded-3xl p-[1.5px]" 
       style={{
         background: border,
       }}

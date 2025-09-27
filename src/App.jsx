@@ -103,7 +103,7 @@ const App = () => {
 
       {!loading && !error && top3Ranks.length > 0 && (
         <div
-          className="hidden md:flex flex-wrap gap-6 justify-center mt-10 rounded-3xl p-6 "
+          className="hidden md:flex w-full flex-wrap gap-6 justify-center mt-10 rounded-3xl p-6 "
           style={{
             // background: "var(--q3-surface-glass-normal)",
             backdropFilter: "blur(16px)",
